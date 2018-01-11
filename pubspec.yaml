@@ -1,13 +1,13 @@
 name: jaguar_flutter_asset
 description: Serve files from Flutter assets.
-version: 0.7.1
+version: 1.1.5
 author: Ravi Teja Gudapati <tejainece@gmail.com>
 homepage: https://github.com/Jaguar-dart/jaguar_flutter_asset
 
 dependencies:
   flutter:
     sdk: flutter
-  jaguar: '>=0.7.0 <0.8.0'
+  jaguar: ^1.1.5
 
 dev_dependencies:
   test: ^0.12.0
