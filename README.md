@@ -10,8 +10,8 @@ how to use it in a project.
 Use `FlutterAssetServer` request handler to serve files from flutter assets.
 
 ```dart
-  final server = new Jaguar();
-  server.addApi(new FlutterAssetServer());
+  final server = Jaguar();
+  server.addRoute(serveFlutterAssets());
   await server.serve();
 ```
 
@@ -27,13 +27,13 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 final flutterWebviewPlugin = new FlutterWebviewPlugin();
 
 main() async {
-  final server = new Jaguar();
-  server.addApi(new FlutterAssetServer());
-  await server.serve();
+  final server = Jaguar();
+  server.addRoute(serveFlutterAssets());
+  await server.serve(logRequests: true);
 
   server.log.onRecord.listen((r) => print(r));
 
-  runApp(new MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -72,8 +72,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
-          flutterWebviewPlugin.launch('http://localhost:8080/',
-              fullScreen: true);
+          flutterWebviewPlugin.launch('http://localhost:8080/');
         },
         tooltip: 'Launch',
         child: new Icon(Icons.web),
@@ -81,4 +80,5 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
 ```

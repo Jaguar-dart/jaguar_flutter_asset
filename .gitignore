@@ -8,3 +8,5 @@ pubspec.lock
 
 .idea
 *.iml
+
+android/local.properties

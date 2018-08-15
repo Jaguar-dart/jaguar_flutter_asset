@@ -1,5 +1,5 @@
 # Changelog
 
-## 0.7.1
+## 2.2.0
 
-+ Strip prefix
++ Architecture
