@@ -72,7 +72,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
-          flutterWebviewPlugin.launch('http://localhost:8080/');
+          flutterWebviewPlugin.launch('http://127.0.0.1:8080/');
         },
         tooltip: 'Launch',
         child: new Icon(Icons.web),
