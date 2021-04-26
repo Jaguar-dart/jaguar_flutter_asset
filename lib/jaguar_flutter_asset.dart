@@ -12,8 +12,8 @@ Route serveFlutterAssets(
     {String path: '*',
     bool stripPrefix: true,
     String prefix: '',
-    Map<String, String> pathRegEx,
-    ResponseProcessor responseProcessor}) {
+    Map<String, String>? pathRegEx,
+    ResponseProcessor? responseProcessor}) {
   Route route;
   int skipCount = -1;
   route = Route.get(path, (ctx) async {
@@ -26,7 +26,7 @@ Route serveFlutterAssets(
         .buffer
         .asUint8List();
 
-    String mimeType;
+    String? mimeType;
     if (!ctx.path.endsWith('/')) {
       if (ctx.pathSegments.isNotEmpty) {
         final String last = ctx.pathSegments.last;
@@ -38,7 +38,7 @@ Route serveFlutterAssets(
       mimeType = 'text/html';
     }
 
-    ctx.response = ByteResponse(body, mimeType: mimeType);
+    ctx.response = ByteResponse(body: body, mimeType: mimeType);
   }, pathRegEx: pathRegEx, responseProcessor: responseProcessor);
 
   if (stripPrefix) skipCount = route.pathSegments.length - 1;
